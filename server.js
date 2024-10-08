@@ -1,22 +1,23 @@
 const express = require("express");
 const app = express();
-const HTTP_PORT = 8080; // You can change this port if needed
+const HTTP_PORT = 8080; 
+
+// i dont know if this is right
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public'));
 
 const LegoData = require("./modules/legoSets");
 const legoData = new LegoData();
 const path = require('path');
 legoData.initialize(); 
-// app.get("/", (req, res) => {
-//     res.send("Welcome to the Lego Data Server!");
-// });
 
-// Route to serve the Home page
+
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'home.html'));
 });
 
-// Route to serve the About page
 app.get('/about', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'about.html'));
 });
