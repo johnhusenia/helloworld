@@ -1,3 +1,14 @@
+/********************************************************************************
+* WEB700 – Assignment 03
+*
+* I declare that this assignment is my own work in accordance with Seneca's
+* Academic Integrity Policy:
+*
+* https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
+*
+* Name: John Clarence C. Husenia Student ID: 174280230 Date: October 11, 2024
+*
+********************************************************************************/
 const express = require("express");
 const app = express();
 const HTTP_PORT = 8080; 
@@ -11,7 +22,6 @@ const LegoData = require("./modules/legoSets");
 const legoData = new LegoData();
 const path = require('path');
 legoData.initialize(); 
-
 
 
 app.get('/', (req, res) => {
@@ -56,3 +66,7 @@ app.get('/lego/sets/:set_num', async (req, res) => {
     }
 });
 
+// just trying things here
+app.get('/aboutme', async (req, res) => {
+    res.json("Hello I am John Clarence Husenia");
+});
