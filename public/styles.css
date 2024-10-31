@@ -1,0 +1,112 @@
+/* Basic page styling */
+body {
+    font-family: Arial, sans-serif;
+    background: #E0F7FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container styling */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+/* Title styling */
+.container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Label styling */
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+/* Input fields styling */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px; /* Adds spacing between input fields */
+    border: 2px solid #DDD;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #00BCD4;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #00BCD4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #0097A7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+/* Disabled button */
+button:disabled {
+    background-color: #B0BEC5;
+    cursor: not-allowed;
+    color: #F5F5F5;
+}
+
+/* Error, Warning, Success state styles */
+.regular {
+    border-color: #DDD;
+    transition: border-color 0.3s ease;
+}
+
+.error {
+    border-color: #E57373;
+    transition: border-color 0.3s ease;
+}
+
+.warning {
+    border-color: #FFB74D;
+    transition: border-color 0.3s ease;
+}
+
+.success {
+    border-color: #81C784;
+    transition: border-color 0.3s ease;
+}
+
+/* Disabled field */
+input:disabled {
+    background: #F5F5F5;
+    color: #B0BEC5;
+    border-color: #B0BEC5;
+    cursor: not-allowed;
+}
+
+/* Placeholder styling for different states */
+.input-field.error::placeholder { color: #E57373; }
+.input-field.warning::placeholder { color: #FFB74D; }
+.input-field.success::placeholder { color: #81C784; }

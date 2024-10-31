@@ -59,52 +59,74 @@ class LegoData{
 
     });
     }
-
-    getSetsByTheme(theme){
-        return new Promise((resolve,reject)=>{
-        const lowerCaseTheme = theme.toLowerCase();
-        let setTobeAdded = [];
-        let j=0;
-        for (let i=0; i<this.sets.length; i++){
-            // console.log(lowerCaseTheme + ' ' + this.sets[i].theme.toLowerCase())
-            if(this.sets[i].theme.toLowerCase().includes(lowerCaseTheme)== 1 ){
-                setTobeAdded[j] = this.sets[i];
-                j++;
-                // this.newsets.push(setTobeAdded)
+    getSetsByTheme(theme) {
+        return new Promise((resolve, reject) => {
+            // if no theme is provided, return all sets
+            if (!theme) {
+                return resolve(this.sets);
             }
-        }
-        console.log(setTobeAdded)
-        if(setTobeAdded != 0){
-            resolve(setTobeAdded)
-        }
-        if(setTobeAdded == 0){
-            resolve('No Lego sets found for the specified theme.')
-        }
-        else{
-            reject('Unable to find requested sets');
-        }
-        
-    });
+    
+            // filter sets by theme (case-insensitive match)
+            const lowerCaseTheme = theme.toLowerCase();
+            const matchingSets = this.sets.filter(set => 
+                set.theme && set.theme.toLowerCase().includes(lowerCaseTheme)
+            );
+    
+            if (matchingSets.length > 0) {
+                resolve(matchingSets);
+            } else {
+                reject('Unable to find requested sets');
+            }
+        });
     }
+    
+
 }
 module.exports = LegoData;
 
-// let data = new LegoData();
-// async function practiceAsync(set_num,theme){
-// try{
 
-//     console.log(await data.initialize());
-//     const numSets = await data.getAllSets()
-//     console.log(`Number of Sets: ${numSets.length}`);
-//     console.log(await data.getSetByNum(set_num));
-//     const themeSets = await data.getSetsByTheme(theme);
-//     console.log(`Number of 'tech' sets: ${themeSets.length}`);
+// let leg = new LegoData();
+// leg.initialize() // Call initialize to fill the sets array first
+//     .then(() => {
+//         return leg.getSetsByTheme("asadsa"); // Chain with getSetsByTheme
+//     })
+//     .then((sets) => {
+//         console.log("Sets found:", sets);
+//     })
+//     .catch((error) => {
+//         console.error("Error:", error);
+//     });
 
-//   }catch(err){
-//     console.log(err);
-//   }
-// }
+    // getSetsByTheme(theme){
+    //     return new Promise((resolve,reject)=>{
+        
+    //     let setTobeAdded = [];
+    //     let j=0;
 
-// practiceAsync("0012-1","tech");
+    //     console.log("theme: " + theme);
+    //     if(theme){
+    //         const lowerCaseTheme = theme.toLowerCase();
+    //         for (let i=0; i<this.sets.length; i++){
+    //             // console.log(lowerCaseTheme + ' ' + this.sets[i].theme.toLowerCase())
+    //             if(this.sets[i].theme.toLowerCase().includes(lowerCaseTheme)== 1 ){
+    //                 setTobeAdded[j] = this.sets[i];
+    //                 j++;
+    //                 // this.newsets.push(setTobeAdded)
+    //             }
+    //         }
+         
+    //     }
 
+    //     if(setTobeAdded!=0){
+    //         resolve(setTobeAdded)
+    //     }
+    //     else if(theme == 0 || theme == undefined){
 
+    //         resolve(setTobeAdded=this.sets)
+    //     }
+    //     else{
+    //         reject('Unable to find requested sets');
+    //     }
+        
+    // });
+    // }
