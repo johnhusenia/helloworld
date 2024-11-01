@@ -35,6 +35,9 @@ app.get('/about', (req, res) => {
 app.get('/insert', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
+app.get('/test', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'test.html'));
+});
 
 app.get('/lego/sets', async (req, res) => {
     const theme = req.query.theme;
