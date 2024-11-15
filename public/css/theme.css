@@ -13,33 +13,6 @@ body, html {
     background-size: cover;
 }
 
-/* navbar styles */
-.navbar {
-  background: url('https://images.pexels.com/photos/4947406/pexels-photo-4947406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
-  /* background: linear-gradient(135deg, #c9a887, #f7d0a9); */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.navbar-brand {
-  font-family: "Bebas Neue", sans-serif;
-  color: #fff !important;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-size: 1.5rem;
-}
-
-.navbar-brand:hover {
-  color: #e6e6e6 !important;
-}
-
-.nav-link {
-  font-family: "Bebas Neue", sans-serif;
-  color: #f0f0f0 !important;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #ffc107 !important;
-}
 
 /* section styles */
 section {
